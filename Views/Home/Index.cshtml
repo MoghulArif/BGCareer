@@ -1,0 +1,35 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<style>
+    #careersText {
+        background: url(../../Images/GreenCity4.jpg);
+        width: 1196px;
+        height: 500px;
+    }
+</style>
+
+<div id="careersText">
+    <center>
+        <h1 style="font-family:Algerian; color:forestgreen"><u> Careers </u></h1><br />
+        <form method="post" enctype="multipart/form-data">
+            <div>
+                <p>
+                    <label><strong style="color:forestgreen"><i>NAME:&nbsp;</i></strong><input id="cName" type="text" style="width:1000px;" placeholder=" Give me your name" /></label><br /><br />
+                    <label><strong style="color:forestgreen"><i>TEL NO:&nbsp;</i></strong><input id="cPhoneNumber" type="text" placeholder=" Your phone number" style="width:1000px;" /></label><br /><br />
+                    <label><strong style="color:forestgreen"><i>EMAIL ID:&nbsp;</i></strong><input id="cEmail" type="text" placeholder=" Email Address" style="width:1000px;" /></label><br /><br />
+                    <label style="color:forestgreen"> &nbsp; <input type="file" id="FileUpload1" name="file" style="width:1000px; font-family: Algerian; font-size:medium; " /></label>
+                    <div id="fileuploaderror" style="color:red;display:none"></div>
+                </p>
+            </div><br /><br />
+            <div>
+                <input type="button" onclick="fileUpload()" value="Submit" style="width:1000px; font-family:'Adobe Arabic'; font-size:large;" />
+            </div>
+        </form>
+    </center>
+</div>
+
+@*onsubmit="alert('Sucessfully Submitted');"*@
+
+

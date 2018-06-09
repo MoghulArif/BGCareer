@@ -1,0 +1,993 @@
+﻿@{
+    ViewBag.Title = "Career Form";
+}
+
+<style>
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+
+    h1 {
+        display: block;
+        font-size: 30px;
+        /*-webkit-margin-before: 0.67em;
+        -webkit-margin-after: 0.67em;
+        -webkit-margin-start: 0px;
+        -webkit-margin-end: 0px;*/
+        /*font-weight: bold;*/
+        margin: 0px;
+        padding: 0px;
+        border-width: 0px;
+        border-style: solid;
+        border-color: transparent;
+        -webkit-transform-origin: left top;
+        -ms-transform-origin: left top;
+        -o-transform-origin: left top;
+        transform-origin: left top;
+        background-repeat: no-repeat;
+    }
+
+    #cCareerHeading {
+        text-transform: uppercase;
+        background-color: transparent;
+        z-index: 61;
+        font-size: 20px;
+        font-family: acumin-pro, sans-serif;
+        line-height: 36px;
+        letter-spacing: 7px;
+        font-weight: 100;
+        /*text-align: center;*/
+        left: 300px;
+        color: #6B6B6B;
+        position: relative;
+    }
+
+    h2 {
+        font-size: 100%;
+        font-weight: inherit;
+        margin: 0px;
+        padding: 0px;
+        border-width: 0px;
+        border-style: solid;
+        border-color: transparent;
+        -webkit-transform-origin: left top;
+        -ms-transform-origin: left top;
+        -o-transform-origin: left top;
+        transform-origin: left top;
+        background-repeat: no-repeat;
+        display: block;
+        font-size: 1.5em;
+        /*-webkit-margin-before: 0.83em;
+        -webkit-margin-after: 0.83em;
+        -webkit-margin-start: 0px;
+        -webkit-margin-end: 0px;*/
+        /*font-weight: bold;*/
+    }
+
+    #cCareerData {
+        color: #6B6B6B;
+        background-color: transparent;
+        z-index: 4;
+        font-size: 16px;
+        /*font-family: acumin-pro, sans-serif;*/
+        line-height: 19px;
+        font-weight: 300;
+        position: relative;
+        width: 560px;
+    }
+
+    #cHeader {
+        /*box-shadow: 0px 4px 8px rgba(0,0,0,0.25);*/
+        box-shadow: 0px 4px 8px rgba(0,0,0,0.25);
+        background-color: #FFFFFF;
+        height: 151px;
+        min-height: 130px;
+        padding-bottom: 20px;
+        z-index: 111;
+        left: 0px;
+        right: 0px;
+        top: 0px;
+        position: absolute;
+    }
+
+    img {
+        width: 111px;
+        height: 111px;
+        margin-right: -10000px;
+    }
+
+    #cCareerLine {
+        background-color: #FF6D22;
+        z-index: 109;
+        height: 4px;
+        width: 960px;
+        margin-top: 17px;
+        position: absolute;
+        /*margin: 0px;
+        padding: 0px;
+        border-width: 0px;
+        border-style: solid;
+        border-color: transparent;
+        -webkit-transform-origin: left top;
+        -ms-transform-origin: left top;
+        -o-transform-origin: left top;
+        transform-origin: left top;
+        background-repeat: no-repeat;*/
+    }
+
+    .cForm {
+        max-width: 800px;
+        margin: auto;
+        padding: 10px;
+    }
+
+    .red-border{
+        border: 1px solid red;
+    }
+
+    #cNameLabel {
+        font-family: acumin-pro, sans-serif;
+        text-transform: uppercase;
+        background-color: transparent;
+        border-width: 0px;
+        font-size: 12px;
+        z-index: 10;
+        /*margin-right: -10000px;*/
+        line-height: 12px;
+        letter-spacing: 1px;
+        font-weight: 300;
+        border-color: transparent;
+        width: 100px;
+        color: #6B6B6B;
+        position: relative;
+        height: 20px;
+    }
+
+    #cName, #cPhoneNumber, #cEmail, #cPosition {
+        /*background-color: lightgrey;*/
+        color: #C8C8C8;
+        /*width: 959px;*/
+        height: 25px;
+        text-decoration-color: white;
+        font-family: acumin-pro, sans-serif;
+        /*background: transparent !important;*/
+    }
+
+        #cName:hover, #cPhoneNumber:hover, #cEmail:hover, #cPosition:hover {
+            background-color: transparent;
+        }
+
+    .form-control {
+        padding: 20px;
+        font-style: italic;
+        position: relative;
+        background: rgb(204, 204, 204); /* Fallback for older browsers without RGBA-support */
+        background: rgba(204, 204, 204, 0.5);
+        /*max-height: 1000000px;*/
+        width: 900px;
+    }
+
+    .cPositionClass {
+        font-style: italic;
+        position: relative;
+        background: rgb(204, 204, 204);
+        background: rgba(204, 204, 204, 0.5);
+        text-indent: 20px;
+    }
+
+    /*::placeholder {
+        color: red;
+        opacity: 1; 
+    }*/
+
+
+
+
+    /*#careersText {
+        background: url(../../Images/GreenCity4.jpg);
+        width: 1196px;
+        height: 500px;
+    }*/
+</style>
+
+
+
+@*=================New Code===========================*@
+
+<!DOCTYPE html>
+<html class="nojs html css_verticalspacer" lang="en-US">
+<head>
+    <meta http-equiv="Content-type" content="text/html;charset=UTF-8" />
+    <meta name="generator" content="2017.1.0.379" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <script type="text/javascript">
+        // Update the 'nojs'/'js' class on the html node
+        document.documentElement.className = document.documentElement.className.replace(/\bnojs\b/g, 'js');
+
+        // Check that all required assets are uploaded and up-to-date
+        if (typeof Muse == "undefined") window.Muse = {}; window.Muse.assets = { "required": ["museutils.js", "museconfig.js", "jquery.watch.js", "webpro.js", "musewpslideshow.js", "jquery.museoverlay.js", "touchswipe.js", "jquery.museresponsive.js", "require.js", "contact-us.css"], "outOfDate": [] };
+    </script>
+
+    <link rel="shortcut icon" href="images/favicon.ico?crc=264522989" />
+    <title>Career Section</title>
+    <!-- CSS -->
+    <link rel="stylesheet" type="text/css" href="css/site_global.css?crc=57008336" />
+    <link rel="stylesheet" type="text/css" href="css/master_a-master.css?crc=3777980433" />
+    <link rel="stylesheet" type="text/css" href="css/contact-us.css?crc=401281643" id="pagesheet" />
+    <!-- IE-only CSS -->
+    <!--[if lt IE 9]>
+    <link rel="stylesheet" type="text/css" href="css/nomq_preview_master_a-master.css?crc=4043756713"/>
+    <link rel="stylesheet" type="text/css" href="css/nomq_contact-us.css?crc=3760909970" id="nomq_pagesheet"/>
+    <![endif]-->
+    <!-- JS includes -->
+    <script src="https://use.typekit.net/ik/So-HlBb0l6C2GvqQFL0b6gVbAnlgl7QRmQun0nk_Wn9feCIgfOplqbJPH2bXFD6hF2iLwcb3ZRb3ZQSkFQSuw28q52mcjQicwe9aZQmcZAwoF2j-OkG0jc80ZhyyiYsTOcFzdPUK-Ao1-eBXieq0jhNlOYiaikoK-Ao1-eBXieq0jhNlJ6Tyjaml-AtlSY4zH6GJkCCgIMMjMkMfH6GJUSCgIMMjgkMfH6GJUvCgIMMjMKMfH6GJkwCgIMMj2KMfH6GJDCCgIMMjgfMfH6GJkvCgIMMj2PMfP6sFiWF8qMekxo2Qgb.js" type="text/javascript"></script>
+    <!-- Other scripts -->
+    <script type="text/javascript">
+        try { Typekit.load(); } catch (e) { }
+    </script>
+    <!--custom head HTML-->
+    <link href='https://fonts.googleapis.com/css?family=Istok+Web:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+</head>
+<body>
+    <div class="breakpoint active" id="bp_infinity" data-min-width="769">
+        <!-- responsive breakpoint node -->
+        <div class="clearfix" id="page">
+            <!-- group -->
+            <div class="clearfix grpelem" id="pu198">
+                <!-- column -->
+                <div class="browser_width colelem" id="u198-bw">
+                    <div id="u198">
+                        <!-- group -->
+                        <div class="clearfix" id="u198_align_to_page">
+                            <div class="clearfix grpelem" id="u24157">
+                                <!-- group -->
+                                <a class="nonblock nontext clip_frame grpelem" id="u1190" href="index.html" data-href="page:U74"><!-- image --><img class="block temp_no_img_src" id="u1190_img" data-orig-src="images/developer_logo.png?crc=3780375937" alt="" width="111" height="111" src="images/blank.gif?crc=4208392903" /></a>
+                            </div>
+                            <div class="clearfix grpelem" id="ppu222570">
+                                <!-- column -->
+                                <div class="clearfix colelem" id="pu222570">
+                                    <!-- group -->
+                                    <a class="nonblock nontext grpelem" id="u222570" href="https://www.instagram.com/binghatti/" target="_blank"><!-- content --></a>
+                                    <a class="nonblock nontext grpelem" id="u222698" href="https://www.facebook.com/Binghatti/"><!-- content --></a>
+                                    <a class="nonblock nontext grpelem" id="u222680" href="https://www.youtube.com/channel/UC9vs-Vl8xPXp6CEU6kKbjUw"><!-- content --></a>
+                                    <a class="nonblock nontext grpelem" id="u222662" href="https://twitter.com/binghatti_dubai" target="_blank"><!-- content --></a>
+                                    <a class="nonblock nontext grpelem" id="u222716" href="https://plus.google.com/103455485549961839030/about"><!-- content --></a>
+                                </div>
+                                <div class="clearfix colelem" id="u24149">
+                                    <!-- group -->
+                                    <a class="nonblock nontext clearfix grpelem" id="u903-4" href="index.html" data-href="page:U74"><!-- content --><p>HOME</p></a>
+                                    <div class="grpelem" id="u907"><!-- simple frame --></div>
+                                    <a class="nonblock nontext clearfix grpelem" id="u906-4" href="about-us.html" data-href="page:U26657"><!-- content --><p>About us</p></a>
+                                    <div class="grpelem" id="u911"><!-- simple frame --></div>
+                                    <a class="nonblock nontext clearfix grpelem" id="u905-4" href="our-properties.html" data-href="page:U25589"><!-- content --><p>Properties</p></a>
+                                    <div class="grpelem" id="u914"><!-- simple frame --></div>
+                                    <a class="nonblock nontext clearfix grpelem" id="u904-4" href="media.html" data-href="page:U2912"><!-- content --><p>MEdia</p></a>
+                                    <div class="grpelem" id="u2656"><!-- simple frame --></div>
+                                    <a class="nonblock nontext MuseLinkActive clearfix grpelem" id="u2659-4" href="contact-us.html" data-href="page:U93"><!-- content --><p>Contact us</p></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- m_editable region-id="editable-static-tag-U6034-BP_infinity" template="contact-us.html" data-type="html" data-ice-options="disableImageResize,link,txtStyleTarget" -->
+                <div class="clearfix colelem" id="u6034-4" data-muse-uid="U6034" data-muse-type="txt_frame" data-IBE-flags="txtStyleSrc">
+                    <!-- content -->
+                    <h1 class="shared_content" data-content-guid="u6034-4_0_content">Career Section</h1>
+                </div>
+                <!-- /m_editable -->
+                <div class="colelem shared_content" id="u234294" data-content-guid="u234294_content"><!-- simple frame --></div>
+                <div class="clearfix colelem" id="ppu807-4">
+                    <!-- group -->
+                    <div class="clearfix grpelem" id="pu807-4">
+                        <!-- column -->
+                        <!-- m_editable region-id="editable-static-tag-U807-BP_infinity" template="contact-us.html" data-type="html" data-ice-options="disableImageResize,link,txtStyleTarget" -->
+                        <div class="clearfix colelem" id="u807-4" data-muse-uid="U807" data-muse-type="txt_frame" data-IBE-flags="txtStyleSrc">
+                            <!-- content -->
+                            <h2 id="u807-2" class="shared_content" data-content-guid="u807-2_content">Please fill up the below career form</h2>
+                        </div>
+                        <!-- /m_editable -->
+                        <form method="post" enctype="multipart/form-data" id="careersForm">
+
+                            @*====================NAME==================================*@
+
+                            <div class="row">
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1" class="col-lg-4" id="cNameLabel">NAME:</label>
+
+                                    <input type="text" class="form-control col-lg-8" id="cName" placeholder="Enter name" onkeydown="return alphaOnly(event);">
+                                    @*<small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>*@
+                                </div>
+                            </div>
+                            <br />
+
+                            @*====================MOBILE NUMBER==================================*@
+
+
+                            <div class="row">
+                                <div class="form-group">
+                                    <label for="exampleInputPassword1" class="col-lg-2" id="cNameLabel">MOBILE:</label>
+                                    @*<input type="tel" class="form-control col-lg-10" id="cPhoneNumber" placeholder="05********"
+                                           onkeydown="return numOnly(event);" maxlength="12">*@
+                                    <input type="number" class="form-control col-lg-10" id="cPhoneNumber" placeholder="05********"
+                                           pattern="\d{3}[\-]\d{3}[\-]\d{4}" maxlength="15" 
+                                           oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);">
+                                </div>
+                            </div>
+                            <br />
+
+                            @*====================EMAIL ADDRESS==================================*@
+
+                            <div class="row">
+                                <div class="form-group">
+                                    <label for="exampleInputPassword1" class="col-lg-2" id="cNameLabel">EMAIL:</label>
+                                    <input type="email" class="form-control col-lg-10" id="cEmail" placeholder="email@company.com" 
+                                           onblur="emailValidate()" required />   
+                                    
+                                        
+                                @*<input type="email" class="form-control col-lg-10" id="cEmail" placeholder="email@company.com" onchange="validate()" 
+                                           onblur="emailValidate()" required/>*@
+
+                                </div>
+                            </div>
+                            <br />
+
+
+                            @*====================POSITION APPLIED FOR==================================*@
+
+
+                            <div class="row">
+                                <div class="form-group">
+                                    <label for="exampleInputPassword1" class="col-lg-2" id="cNameLabel">POSITION:&nbsp;</label>
+                                    <select class="col-lg-10 cPositionClass required" name="Position2" id="cPosition">
+                                        <option value="">                     Select your occupation     </option>
+                                        <option value="Software-Engineer">    Software Engineer          </option>
+                                        <option value="Graphic-Designer">     Graphic Designer           </option>
+                                        <option value="Marketing-Manager">    Marketing Manager          </option>
+                                        <option value="Others">               Others                     </option>
+                                    </select><br />
+                                </div>
+                            </div>
+                            <br />
+
+
+                            @*====================ATTACHMENT CV==================================*@
+
+
+                            <div class="row">
+                                <div class="form-group">
+                                    <label for="exampleInputPassword1" class="col-lg-2" id="cNameLabel">ATTACH CV:</label>
+                                    <input type="file" id="FileUpload1" name="file" accept="application/pdf" onchange="FileSelected(this)" style="width:1000px; font-family: Algerian; font-size:medium; " />
+                                    <small id="emailHelp" class="form-text text-muted">We accept only PDF.</small>
+                                </div>
+                            </div>
+                            <br />
+
+                            @*====================FILE UPLOAD ERROR==================================*@
+
+
+                            <div id="fileuploaderror" style="color:red;display:none"></div>
+
+
+                            @*====================SUBMIT BUTTON==================================*@
+
+                            <div class="row">
+                                <div class="form-group">
+                                    <label class="col-lg-1"></label>
+                                    <input id="cSubmit" class="col-lg-11" type="submit" onclick="fileUpload()" value="SUBMIT" style="font-family:'Adobe Arabic'; font-size:large;" />
+                                </div>
+                            </div>
+                            <br />                           
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="browser_width colelem shared_content" id="u29206-bw" data-content-guid="u29206-bw_content">
+                <div class="size_browser_width" id="u29206">
+                    <!-- custom html -->
+
+
+                </div>
+            </div>
+            <!-- m_editable region-id="editable-static-tag-U803-BP_infinity" template="contact-us.html" data-type="image" -->
+            <div class="clip_frame colelem" id="u803" data-muse-uid="U803" data-muse-type="img_frame">
+                <!-- image -->
+                <img class="block temp_no_img_src" id="u803_img" data-orig-src="images/separator.png?crc=98446538" alt="" width="960" height="25" data-muse-src="images/separator.png?crc=98446538" src="images/blank.gif?crc=4208392903" />
+            </div>
+            <!-- /m_editable -->
+        </div>
+        <div class="verticalspacer" data-offset-top="1062" data-content-above-spacer="1062" data-content-below-spacer="115"></div>
+        <div class="browser_width grpelem" id="u144-bw">
+            <div id="u144">
+                <!-- group -->
+                <div class="clearfix" id="u144_align_to_page">
+                    <a class="nonblock nontext clearfix grpelem" id="u115801-4" href="index.html" data-href="page:U74"><!-- content --><p id="u115801-2" class="shared_content" data-content-guid="u115801-2_content">HOME</p></a>
+                    <a class="nonblock nontext clearfix grpelem" id="u115799-4" href="about-us.html" data-href="page:U26657"><!-- content --><p id="u115799-2" class="shared_content" data-content-guid="u115799-2_content">About us</p></a>
+                    <a class="nonblock nontext clearfix grpelem" id="u115800-4" href="our-properties.html" data-href="page:U25589"><!-- content --><p id="u115800-2" class="shared_content" data-content-guid="u115800-2_content">Properties</p></a>
+                    <a class="nonblock nontext clearfix grpelem" id="u115797-4" href="media.html" data-href="page:U2912"><!-- content --><p id="u115797-2" class="shared_content" data-content-guid="u115797-2_content">Media</p></a>
+                    <a class="nonblock nontext MuseLinkActive clearfix grpelem" id="u115798-4" href="contact-us.html" data-href="page:U93"><!-- content --><p id="u115798-2" class="shared_content" data-content-guid="u115798-2_content">Contact us</p></a>
+                    <a class="nonblock nontext clearfix grpelem" id="u197-4" href="http://binghatti.com" data-IBE-flags="txtStyleSrc"><!-- content --><p class="shared_content" data-content-guid="u197-4_0_content">© 2016 Binghatti holding</p></a>
+                    <a class="nonblock nontext clip_frame grpelem" id="u224799" href="http://binghatti.com"><!-- svg --><img class="svg temp_no_img_src shared_content" id="u224797" data-orig-src="images/pasted-svg-180x162.svg?crc=3823574499" width="60" height="54" alt="" data-mu-svgfallback="images/pasted%20svg%20180x162_poster_.png?crc=443405870" src="images/blank.gif?crc=4208392903" data-content-guid="u224797_content" /></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="breakpoint" id="bp_768" data-min-width="506" data-max-width="768">
+        <!-- responsive breakpoint node -->
+        <div class="clearfix temp_no_id" data-orig-id="page">
+            <!-- group -->
+            <div class="clearfix grpelem temp_no_id" data-orig-id="pu198">
+                <!-- column -->
+                <div class="browser_width colelem temp_no_id" data-orig-id="u198-bw">
+                    <div class="temp_no_id" data-orig-id="u198">
+                        <!-- group -->
+                        <div class="clearfix temp_no_id" data-orig-id="u198_align_to_page">
+                            <div class="clearfix grpelem temp_no_id shared_content" data-orig-id="u24157" data-content-guid="u24157_content">
+                                <!-- group -->
+                                <a class="nonblock nontext clip_frame grpelem temp_no_id" href="index.html" data-href="page:U74" data-sizePolicy="fixed" data-pintopage="page_fluidx" data-orig-id="u1190"><!-- image --><img class="block temp_no_id temp_no_img_src" data-orig-src="images/developer_logo.png?crc=3780375937" alt="" width="100" height="100" data-orig-id="u1190_img" src="images/blank.gif?crc=4208392903" /></a>
+                            </div>
+                            <a class="nonblock nontext grpelem temp_no_id shared_content" href="https://www.instagram.com/binghatti/" target="_blank" data-sizePolicy="fixed" data-pintopage="page_fixedRight" data-orig-id="u222570" data-content-guid="u222570_content"><!-- content --></a>
+                            <a class="nonblock nontext grpelem temp_no_id shared_content" href="https://www.facebook.com/Binghatti/" data-sizePolicy="fixed" data-pintopage="page_fixedRight" data-orig-id="u222698" data-content-guid="u222698_content"><!-- content --></a>
+                            <a class="nonblock nontext grpelem temp_no_id shared_content" href="https://www.youtube.com/channel/UC9vs-Vl8xPXp6CEU6kKbjUw" data-sizePolicy="fixed" data-pintopage="page_fixedRight" data-orig-id="u222680" data-content-guid="u222680_content"><!-- content --></a>
+                            <div class="clearfix grpelem" id="ppu222662">
+                                <!-- column -->
+                                <div class="clearfix colelem shared_content" id="pu222662" data-content-guid="pu222662_content">
+                                    <!-- group -->
+                                    <a class="nonblock nontext grpelem temp_no_id" href="https://twitter.com/binghatti_dubai" target="_blank" data-sizePolicy="fixed" data-pintopage="page_fixedRight" data-leftAdjustmentDoneBy="pu222662" data-orig-id="u222662"><!-- content --></a>
+                                    <a class="nonblock nontext grpelem temp_no_id" href="https://plus.google.com/103455485549961839030/about" data-sizePolicy="fixed" data-pintopage="page_fixedRight" data-leftAdjustmentDoneBy="pu222662" data-orig-id="u222716"><!-- content --></a>
+                                </div>
+                                <div class="PamphletWidget clearfix allow_click_through widget_invisible colelem" id="pamphletu170340" data-visibility="changed" style="visibility:hidden" data-islightbox="true" data-sizePolicy="fluidWidth" data-pintopage="page_fixedRight" data-leftAdjustmentDoneBy="ppu222662">
+                                    <!-- none box -->
+                                    <div class="clearfix grpelem" id="pu170345">
+                                        <!-- group -->
+                                        <div class="popup_anchor allow_click_through grpelem" data-col-pos="1" id="u170345popup" data-lightbox="true">
+                                            <div class="ContainerGroup clearfix" data-col-pos="1" id="u170345" data-sizePolicy="fixed" data-pintopage="page_fixedLeft">
+                                                <!-- stack box -->
+                                                <div class="Container clearfix grpelem" data-col-pos="0" id="u170346" data-sizePolicy="fixed" data-pintopage="page_fixedLeft">
+                                                    <!-- group -->
+                                                    <div class="clearfix grpelem shared_content" id="pu170347-4" data-content-guid="pu170347-4_content">
+                                                        <!-- column -->
+                                                        <a class="nonblock nontext clearfix colelem" id="u170347-4" href="index.html" data-href="page:U74" data-sizePolicy="fixed" data-pintopage="page_fixedCenter" data-leftAdjustmentDoneBy="pu170347-4"><!-- content --><p>HOME</p></a>
+                                                        <a class="nonblock nontext clearfix colelem" id="u170350-4" href="about-us.html" data-href="page:U26657" data-sizePolicy="fixed" data-pintopage="page_fixedCenter" data-leftAdjustmentDoneBy="pu170347-4"><!-- content --><p>About us</p></a>
+                                                        <a class="nonblock nontext clearfix colelem" id="u170351-4" href="our-properties.html" data-href="page:U25589" data-sizePolicy="fixed" data-pintopage="page_fixedCenter" data-leftAdjustmentDoneBy="pu170347-4"><!-- content --><p>Properties</p></a>
+                                                        <a class="nonblock nontext clearfix colelem" id="u170348-4" href="media.html" data-href="page:U2912" data-sizePolicy="fixed" data-pintopage="page_fixedCenter" data-leftAdjustmentDoneBy="pu170347-4"><!-- content --><p>MEdia</p></a>
+                                                        <a class="nonblock nontext MuseLinkActive clearfix colelem" id="u170349-4" href="contact-us.html" data-href="page:U93" data-sizePolicy="fixed" data-pintopage="page_fixedCenter" data-leftAdjustmentDoneBy="pu170347-4"><!-- content --><p>Contact us</p></a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="popup_anchor allow_click_through grpelem" data-col-pos="4" id="u170356popup">
+                                            <div class="PamphletCloseButton PamphletLightboxPart popup_element" data-col-pos="4" id="u170356" data-sizePolicy="fixed" data-pintopage="page_fixedLeft"><!-- simple frame --></div>
+                                        </div>
+                                    </div>
+                                    <div class="ThumbGroup clearfix grpelem" data-col-pos="0" id="u170341" data-sizePolicy="fluidWidth" data-pintopage="page_fixedRight">
+                                        <!-- none box -->
+                                        <div class="popup_anchor allow_click_through grpelem" data-col-pos="0" id="u170342popup">
+                                            <div class="Thumb popup_element" data-col-pos="0" id="u170342" data-sizePolicy="fixed" data-pintopage="page_fixedRight" data-leftAdjustmentDoneBy="u170342popup"><!-- simple frame --></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="clearfix colelem shared_content" id="u215904-4" data-IBE-flags="txtStyleSrc" data-sizePolicy="fixed" data-pintopage="page_fixedRight" data-leftAdjustmentDoneBy="ppu222662" data-content-guid="u215904-4_content">
+                                    <!-- content -->
+                                    <p>Menu</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- m_editable region-id="editable-static-tag-U6034-BP_768" template="contact-us.html" data-type="html" data-ice-options="disableImageResize,link,txtStyleTarget" -->
+                <div class="clearfix colelem temp_no_id" data-muse-uid="U6034" data-muse-type="txt_frame" data-IBE-flags="txtStyleSrc" data-sizePolicy="fluidWidth" data-pintopage="page_fixedCenter" data-orig-id="u6034-4">
+                    <!-- content -->
+                    <span class="placeholder" data-placeholder-for="u6034-4_0_content"><!-- placeholder node --></span>
+                </div>
+                <!-- /m_editable -->
+                <div class="browser_width colelem" id="u234294-bw">
+                    <span class="placeholder" data-placeholder-for="u234294_content"><!-- placeholder node --></span>
+                </div>
+                <!-- m_editable region-id="editable-static-tag-U807-BP_768" template="contact-us.html" data-type="html" data-ice-options="disableImageResize,link,txtStyleTarget" -->
+                <div class="clearfix colelem temp_no_id" data-muse-uid="U807" data-muse-type="txt_frame" data-IBE-flags="txtStyleSrc" data-sizePolicy="fluidWidth" data-pintopage="page_fixedCenter" data-orig-id="u807-4">
+                    <!-- content -->
+                    <span class="placeholder" data-placeholder-for="u807-2_content"><!-- placeholder node --></span>
+                </div>
+                <!-- /m_editable -->
+                <!-- m_editable region-id="editable-static-tag-U144506-BP_768" template="contact-us.html" data-type="html" data-ice-options="disableImageResize,link,txtStyleTarget" -->
+                <div class="clearfix colelem temp_no_id" data-muse-uid="U144506" data-muse-type="txt_frame" data-IBE-flags="txtStyleSrc" data-sizePolicy="fluidWidth" data-pintopage="page_fixedCenter" data-orig-id="u144506-6">
+                    <!-- content -->
+                    <span class="placeholder" data-placeholder-for="u144506-6_0_content"><!-- placeholder node --></span>
+                    <span class="placeholder" data-placeholder-for="u144506-6_1_content"><!-- placeholder node --></span>
+                </div>
+                <!-- /m_editable -->
+                <div class="clearfix colelem" id="pu144503-4">
+                    <!-- group -->
+                    <!-- m_editable region-id="editable-static-tag-U144503-BP_768" template="contact-us.html" data-type="html" data-ice-options="disableImageResize,link,txtStyleTarget" -->
+                    <div class="clearfix grpelem temp_no_id" data-muse-uid="U144503" data-muse-type="txt_frame" data-IBE-flags="txtStyleSrc" data-sizePolicy="fixed" data-pintopage="page_fixedCenter" data-leftAdjustmentDoneBy="pu144503-4" data-orig-id="u144503-4">
+                        <!-- content -->
+                        <span class="placeholder" data-placeholder-for="u144503-4_0_content"><!-- placeholder node --></span>
+                    </div>
+                    <!-- /m_editable -->
+                    <!-- m_editable region-id="editable-static-tag-U144505-BP_768" template="contact-us.html" data-type="html" data-ice-options="disableImageResize,link,txtStyleTarget" -->
+                    <div class="clearfix grpelem temp_no_id" data-muse-uid="U144505" data-muse-type="txt_frame" data-IBE-flags="txtStyleSrc" data-sizePolicy="fixed" data-pintopage="page_fixedCenter" data-leftAdjustmentDoneBy="pu144503-4" data-orig-id="u144505-4">
+                        <!-- content -->
+                        <span class="placeholder" data-placeholder-for="u144505-4_0_content"><!-- placeholder node --></span>
+                    </div>
+                    <!-- /m_editable -->
+                </div>
+                <div class="clearfix colelem" id="ppu144507-4">
+                    <!-- group -->
+                    <div class="clearfix grpelem" id="pu144507-4">
+                        <!-- column -->
+                        <!-- m_editable region-id="editable-static-tag-U144507-BP_768" template="contact-us.html" data-type="html" data-ice-options="disableImageResize,link,txtStyleTarget" -->
+                        <div class="clearfix colelem temp_no_id" data-muse-uid="U144507" data-muse-type="txt_frame" data-IBE-flags="txtStyleSrc" data-sizePolicy="fixed" data-pintopage="page_fixedCenter" data-leftAdjustmentDoneBy="pu144507-4" data-orig-id="u144507-4">
+                            <!-- content -->
+                            <span class="placeholder" data-placeholder-for="u144507-4_0_content"><!-- placeholder node --></span>
+                        </div>
+                        <!-- /m_editable -->
+                        <!-- m_editable region-id="editable-static-tag-U144504-BP_768" template="contact-us.html" data-type="html" data-ice-options="disableImageResize,link,txtStyleTarget" -->
+                        <div class="clearfix colelem temp_no_id" data-muse-uid="U144504" data-muse-type="txt_frame" data-IBE-flags="txtStyleSrc" data-sizePolicy="fixed" data-pintopage="page_fixedCenter" data-leftAdjustmentDoneBy="pu144507-4" data-orig-id="u144504-4">
+                            <!-- content -->
+                            <span class="placeholder" data-placeholder-for="u144504-4_0_content"><!-- placeholder node --></span>
+                        </div>
+                        <!-- /m_editable -->
+                        <div class="clearfix colelem temp_no_id shared_content" data-orig-id="u144516" data-content-guid="u144516_content">
+                            <!-- group -->
+                            <div class="clearfix grpelem temp_no_id" data-orig-id="pu144518">
+                                <!-- group -->
+                                <div class="grpelem temp_no_id" data-sizePolicy="fixed" data-pintopage="page_fixedCenter" data-orig-id="u144518"><!-- simple frame --></div>
+                                <div class="grpelem temp_no_id" data-sizePolicy="fixed" data-pintopage="page_fixedCenter" data-orig-id="u144517"><!-- simple frame --></div>
+                            </div>
+                        </div>
+                        <!-- m_editable region-id="editable-static-tag-U144508-BP_768" template="contact-us.html" data-type="html" data-ice-options="disableImageResize,link,txtStyleTarget" -->
+                        <div class="clearfix colelem temp_no_id" data-muse-uid="U144508" data-muse-type="txt_frame" data-IBE-flags="txtStyleSrc" data-sizePolicy="fixed" data-pintopage="page_fixedCenter" data-leftAdjustmentDoneBy="pu144507-4" data-orig-id="u144508-4">
+                            <!-- content -->
+                            <span class="placeholder" data-placeholder-for="u144508-4_0_content"><!-- placeholder node --></span>
+                        </div>
+                        <!-- /m_editable -->
+                    </div>
+                    <!-- m_editable region-id="editable-static-tag-U144509-BP_768" template="contact-us.html" data-type="html" data-ice-options="disableImageResize,link,txtStyleTarget" -->
+                    <div class="clearfix grpelem temp_no_id" data-muse-uid="U144509" data-muse-type="txt_frame" data-IBE-flags="txtStyleSrc" data-sizePolicy="fixed" data-pintopage="page_fixedCenter" data-leftAdjustmentDoneBy="ppu144507-4" data-orig-id="u144509-8">
+                        <!-- content -->
+                        <span class="placeholder" data-placeholder-for="u144509-8_0_content"><!-- placeholder node --></span>
+                        <span class="placeholder" data-placeholder-for="u144509-8_1_content"><!-- placeholder node --></span>
+                        <span class="placeholder" data-placeholder-for="u144509-8_2_content"><!-- placeholder node --></span>
+                    </div>
+                    <!-- /m_editable -->
+                    <div class="clearfix grpelem temp_no_id shared_content" data-orig-id="u144510" data-content-guid="u144510_content">
+                        <!-- group -->
+                        <div class="clearfix grpelem temp_no_id" data-orig-id="pu144512">
+                            <!-- group -->
+                            <div class="grpelem temp_no_id" data-sizePolicy="fixed" data-pintopage="page_fixedCenter" data-orig-id="u144512"><!-- simple frame --></div>
+                            <div class="grpelem temp_no_id" data-sizePolicy="fixed" data-pintopage="page_fixedCenter" data-orig-id="u144511"><!-- simple frame --></div>
+                        </div>
+                    </div>
+                    <div class="clearfix grpelem temp_no_id shared_content" data-orig-id="u144513" data-content-guid="u144513_content">
+                        <!-- group -->
+                        <div class="clearfix grpelem temp_no_id" data-orig-id="pu144515">
+                            <!-- group -->
+                            <div class="grpelem temp_no_id" data-sizePolicy="fixed" data-pintopage="page_fixedCenter" data-orig-id="u144515"><!-- simple frame --></div>
+                            <div class="grpelem temp_no_id" data-sizePolicy="fixed" data-pintopage="page_fixedCenter" data-orig-id="u144514"><!-- simple frame --></div>
+                        </div>
+                    </div>
+                </div>
+                <form class="form-grp clearfix colelem temp_no_id" method="post" enctype="multipart/form-data" action="scripts/form-u809.php" data-sizePolicy="fluidWidth" data-pintopage="page_fixedCenter" data-orig-id="widgetu809">
+                    <!-- none box -->
+                    <div class="clearfix grpelem" id="pwidgetu818">
+                        <!-- column -->
+                        <div class="fld-grp clearfix colelem temp_no_id" data-required="true" data-sizePolicy="fixed" data-pintopage="page_fixedCenter" data-orig-id="widgetu818">
+                            <!-- none box -->
+                            <!-- m_editable region-id="editable-static-tag-U819-BP_768" template="contact-us.html" data-type="html" data-ice-options="disableImageResize,link" -->
+                            <label class="fld-label actAsDiv clearfix grpelem temp_no_id" data-muse-uid="U819" data-muse-type="txt_frame" for="widgetu818_input" data-sizePolicy="fixed" data-pintopage="page_fixedLeft" data-orig-id="u819-4"><!-- content --><span class="actAsPara placeholder" data-placeholder-for="u819-2_content"><!-- placeholder node --></span></label>
+                            <!-- /m_editable -->
+                            <span class="fld-input NoWrap actAsDiv rgba-background clearfix grpelem temp_no_id" data-sizePolicy="fixed" data-pintopage="page_fixedLeft" data-orig-id="u821-4"><!-- content --><span class="wrapped-input placeholder" data-placeholder-for="widgetu818_input_content"><!-- placeholder node --></span><label class="wrapped-input fld-prompt temp_no_id" for="widgetu818_input" data-orig-id="widgetu818_prompt"><span class="actAsPara placeholder" data-placeholder-for="widgetu818_prompt_0_content"><!-- placeholder node --></span></label></span>
+                        </div>
+                        <div class="fld-grp clearfix colelem temp_no_id" data-required="true" data-sizePolicy="fixed" data-pintopage="page_fixedCenter" data-orig-id="widgetu10718">
+                            <!-- none box -->
+                            <!-- m_editable region-id="editable-static-tag-U10719-BP_768" template="contact-us.html" data-type="html" data-ice-options="disableImageResize,link" -->
+                            <label class="fld-label actAsDiv clearfix grpelem temp_no_id" data-muse-uid="U10719" data-muse-type="txt_frame" for="widgetu10718_input" data-sizePolicy="fixed" data-pintopage="page_fixedLeft" data-orig-id="u10719-4"><!-- content --><span class="actAsPara placeholder" data-placeholder-for="u10719-2_content"><!-- placeholder node --></span></label>
+                            <!-- /m_editable -->
+                            <span class="fld-input NoWrap actAsDiv rgba-background clearfix grpelem temp_no_id" data-sizePolicy="fixed" data-pintopage="page_fixedLeft" data-orig-id="u10720-4"><!-- content --><span class="wrapped-input placeholder" data-placeholder-for="widgetu10718_input_content"><!-- placeholder node --></span><label class="wrapped-input fld-prompt temp_no_id" for="widgetu10718_input" data-orig-id="widgetu10718_prompt"><span class="actAsPara placeholder" data-placeholder-for="widgetu10718_prompt_0_content"><!-- placeholder node --></span></label></span>
+                        </div>
+                        <div class="fld-grp clearfix colelem temp_no_id" data-required="true" data-type="email" data-sizePolicy="fixed" data-pintopage="page_fixedCenter" data-orig-id="widgetu822">
+                            <!-- none box -->
+                            <!-- m_editable region-id="editable-static-tag-U823-BP_768" template="contact-us.html" data-type="html" data-ice-options="disableImageResize,link" -->
+                            <label class="fld-label actAsDiv clearfix grpelem temp_no_id" data-muse-uid="U823" data-muse-type="txt_frame" for="widgetu822_input" data-sizePolicy="fixed" data-pintopage="page_fixedLeft" data-orig-id="u823-4"><!-- content --><span class="actAsPara placeholder" data-placeholder-for="u823-2_content"><!-- placeholder node --></span></label>
+                            <!-- /m_editable -->
+                            <span class="fld-input NoWrap actAsDiv rgba-background clearfix grpelem temp_no_id" data-sizePolicy="fixed" data-pintopage="page_fixedLeft" data-orig-id="u824-4"><!-- content --><span class="wrapped-input placeholder" data-placeholder-for="widgetu822_input_content"><!-- placeholder node --></span><label class="wrapped-input fld-prompt temp_no_id" for="widgetu822_input" data-orig-id="widgetu822_prompt"><span class="actAsPara placeholder" data-placeholder-for="widgetu822_prompt_0_content"><!-- placeholder node --></span></label></span>
+                        </div>
+                        <div class="fld-grp clearfix colelem temp_no_id" data-required="false" data-sizePolicy="fixed" data-pintopage="page_fixedCenter" data-orig-id="widgetu812">
+                            <!-- none box -->
+                            <!-- m_editable region-id="editable-static-tag-U814-BP_768" template="contact-us.html" data-type="html" data-ice-options="disableImageResize,link" -->
+                            <label class="fld-label actAsDiv clearfix grpelem temp_no_id" data-muse-uid="U814" data-muse-type="txt_frame" for="widgetu812_input" data-sizePolicy="fixed" data-pintopage="page_fixedLeft" data-orig-id="u814-4"><!-- content --><span class="actAsPara placeholder" data-placeholder-for="u814-2_content"><!-- placeholder node --></span></label>
+                            <!-- /m_editable -->
+                            <span class="fld-textarea actAsDiv rgba-background clearfix grpelem temp_no_id" data-sizePolicy="fixed" data-pintopage="page_fixedLeft" data-orig-id="u815-4"><!-- content --><span class="wrapped-input placeholder" data-placeholder-for="widgetu812_input_content"><!-- placeholder node --></span><label class="wrapped-input fld-prompt temp_no_id" for="widgetu812_input" data-orig-id="widgetu812_prompt"><span class="actAsPara placeholder" data-placeholder-for="widgetu812_prompt_0_content"><!-- placeholder node --></span></label></span>
+                        </div>
+                        <!-- m_editable region-id="editable-static-tag-U816-BP_768" template="contact-us.html" data-type="html" data-ice-options="disableImageResize,link" -->
+                        <button class="submit-btn NoWrap rounded-corners clearfix colelem temp_no_id" data-muse-uid="U816" data-muse-type="txt_frame" type="submit" value="Submit" tabindex="10" data-sizePolicy="fixed" data-pintopage="page_fixedCenter" data-orig-id="u816-4">
+                            <!-- content -->
+                            <span class="placeholder" data-placeholder-for="u816-4_0_content"><!-- placeholder node --></span>
+                        </button>
+                        <!-- /m_editable -->
+                        <div class="clearfix colelem" id="pu810-4">
+                            <!-- group -->
+                            <!-- m_editable region-id="editable-static-tag-U810-BP_768" template="contact-us.html" data-type="html" data-ice-options="disableImageResize,link" -->
+                            <div class="clearfix grpelem temp_no_id" data-muse-uid="U810" data-muse-type="txt_frame" data-sizePolicy="fixed" data-pintopage="page_fixedCenter" data-orig-id="u810-4">
+                                <!-- content -->
+                                <span class="placeholder" data-placeholder-for="u810-4_0_content"><!-- placeholder node --></span>
+                            </div>
+                            <!-- /m_editable -->
+                            <!-- m_editable region-id="editable-static-tag-U817-BP_768" template="contact-us.html" data-type="html" data-ice-options="disableImageResize,link" -->
+                            <div class="clearfix grpelem temp_no_id" data-muse-uid="U817" data-muse-type="txt_frame" data-sizePolicy="fixed" data-pintopage="page_fixedLeft" data-orig-id="u817-4">
+                                <!-- content -->
+                                <span class="placeholder" data-placeholder-for="u817-4_0_content"><!-- placeholder node --></span>
+                            </div>
+                            <!-- /m_editable -->
+                            <!-- m_editable region-id="editable-static-tag-U811-BP_768" template="contact-us.html" data-type="html" data-ice-options="disableImageResize,link" -->
+                            <div class="clearfix grpelem temp_no_id" data-muse-uid="U811" data-muse-type="txt_frame" data-sizePolicy="fixed" data-pintopage="page_fixedCenter" data-orig-id="u811-4">
+                                <!-- content -->
+                                <span class="placeholder" data-placeholder-for="u811-4_0_content"><!-- placeholder node --></span>
+                            </div>
+                            <!-- /m_editable -->
+                        </div>
+                    </div>
+                </form>
+                <span class="browser_width colelem placeholder" data-placeholder-for="u29206-bw_content"><!-- placeholder node --></span>
+                <!-- m_editable region-id="editable-static-tag-U803-BP_768" template="contact-us.html" data-type="image" -->
+                <div class="clip_frame colelem temp_no_id" data-muse-uid="U803" data-muse-type="img_frame" data-sizePolicy="fixed" data-pintopage="page_fixedCenter" data-orig-id="u803">
+                    <!-- image -->
+                    <img class="block temp_no_id temp_no_img_src" data-orig-src="images/separator.png?crc=98446538" alt="" width="640" height="17" data-muse-src="images/separator.png?crc=98446538" data-orig-id="u803_img" src="images/blank.gif?crc=4208392903" />
+                </div>
+                <!-- /m_editable -->
+            </div>
+            <div class="verticalspacer" data-offset-top="1208" data-content-above-spacer="1208" data-content-below-spacer="145" data-sizePolicy="fixed" data-pintopage="page_fixedLeft"></div>
+            <div class="browser_width grpelem temp_no_id" data-orig-id="u144-bw">
+                <div class="temp_no_id" data-orig-id="u144">
+                    <!-- group -->
+                    <div class="clearfix temp_no_id" data-orig-id="u144_align_to_page">
+                        <div class="clearfix grpelem" id="pu115801-4">
+                            <!-- column -->
+                            <a class="nonblock nontext clearfix colelem temp_no_id" href="index.html" data-href="page:U74" data-sizePolicy="fixed" data-pintopage="page_fluidx" data-orig-id="u115801-4"><!-- content --><span class="placeholder" data-placeholder-for="u115801-2_content"><!-- placeholder node --></span></a>
+                            <a class="nonblock nontext clearfix colelem temp_no_id" href="about-us.html" data-href="page:U26657" data-sizePolicy="fixed" data-pintopage="page_fluidx" data-orig-id="u115799-4"><!-- content --><span class="placeholder" data-placeholder-for="u115799-2_content"><!-- placeholder node --></span></a>
+                            <a class="nonblock nontext clearfix colelem temp_no_id" href="our-properties.html" data-href="page:U25589" data-sizePolicy="fixed" data-pintopage="page_fluidx" data-orig-id="u115800-4"><!-- content --><span class="placeholder" data-placeholder-for="u115800-2_content"><!-- placeholder node --></span></a>
+                            <a class="nonblock nontext clearfix colelem temp_no_id" href="media.html" data-href="page:U2912" data-sizePolicy="fixed" data-pintopage="page_fluidx" data-orig-id="u115797-4"><!-- content --><span class="placeholder" data-placeholder-for="u115797-2_content"><!-- placeholder node --></span></a>
+                            <a class="nonblock nontext MuseLinkActive clearfix colelem temp_no_id" href="contact-us.html" data-href="page:U93" data-sizePolicy="fixed" data-pintopage="page_fluidx" data-orig-id="u115798-4"><!-- content --><span class="placeholder" data-placeholder-for="u115798-2_content"><!-- placeholder node --></span></a>
+                        </div>
+                        <a class="nonblock nontext clearfix grpelem temp_no_id" href="http://binghatti.com" data-IBE-flags="txtStyleSrc" data-sizePolicy="fixed" data-pintopage="page_fixedRight" data-orig-id="u197-4"><!-- content --><span class="placeholder" data-placeholder-for="u197-4_0_content"><!-- placeholder node --></span></a>
+                        <a class="nonblock nontext clip_frame grpelem temp_no_id" href="http://binghatti.com" data-sizePolicy="fixed" data-pintopage="page_fixedRight" data-orig-id="u224799"><!-- svg --><span class="svg placeholder" data-placeholder-for="u224797_content"><!-- placeholder node --></span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="breakpoint" id="bp_505" data-max-width="505">
+        <!-- responsive breakpoint node -->
+        <div class="clearfix temp_no_id" data-orig-id="page">
+            <!-- group -->
+            <div class="clearfix grpelem temp_no_id" data-orig-id="pu198">
+                <!-- column -->
+                <div class="browser_width colelem temp_no_id" data-orig-id="u198-bw">
+                    <div class="temp_no_id" data-orig-id="u198">
+                        <!-- group -->
+                        <div class="clearfix temp_no_id" data-orig-id="u198_align_to_page">
+                            <span class="clearfix grpelem placeholder" data-placeholder-for="u24157_content"><!-- placeholder node --></span>
+                            <span class="nonblock nontext grpelem placeholder" data-placeholder-for="u222570_content"><!-- placeholder node --></span>
+                            <span class="nonblock nontext grpelem placeholder" data-placeholder-for="u222698_content"><!-- placeholder node --></span>
+                            <span class="nonblock nontext grpelem placeholder" data-placeholder-for="u222680_content"><!-- placeholder node --></span>
+                            <div class="clearfix grpelem temp_no_id" data-orig-id="ppu222662">
+                                <!-- column -->
+                                <span class="clearfix colelem placeholder" data-placeholder-for="pu222662_content"><!-- placeholder node --></span>
+                                <div class="PamphletWidget clearfix allow_click_through widget_invisible colelem temp_no_id" data-visibility="changed" style="visibility:hidden" data-islightbox="true" data-sizePolicy="fluidWidth" data-pintopage="page_fixedRight" data-leftAdjustmentDoneBy="ppu222662" data-orig-id="pamphletu170340">
+                                    <!-- none box -->
+                                    <div class="clearfix grpelem temp_no_id" data-orig-id="pu170345">
+                                        <!-- group -->
+                                        <div class="popup_anchor allow_click_through grpelem temp_no_id" data-col-pos="1" data-lightbox="true" data-orig-id="u170345popup">
+                                            <div class="ContainerGroup clearfix temp_no_id" data-col-pos="1" data-sizePolicy="fixed" data-pintopage="page_fixedLeft" data-orig-id="u170345">
+                                                <!-- stack box -->
+                                                <div class="Container clearfix grpelem temp_no_id" data-col-pos="0" data-sizePolicy="fixed" data-pintopage="page_fixedLeft" data-orig-id="u170346">
+                                                    <!-- group -->
+                                                    <span class="clearfix grpelem placeholder" data-placeholder-for="pu170347-4_content"><!-- placeholder node --></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="popup_anchor allow_click_through grpelem temp_no_id" data-col-pos="4" data-orig-id="u170356popup">
+                                            <div class="PamphletCloseButton PamphletLightboxPart popup_element temp_no_id" data-col-pos="4" data-sizePolicy="fixed" data-pintopage="page_fixedLeft" data-orig-id="u170356"><!-- simple frame --></div>
+                                        </div>
+                                    </div>
+                                    <div class="ThumbGroup clearfix grpelem temp_no_id" data-col-pos="0" data-sizePolicy="fluidWidth" data-pintopage="page_fixedRight" data-orig-id="u170341">
+                                        <!-- none box -->
+                                        <div class="popup_anchor allow_click_through grpelem temp_no_id" data-col-pos="0" data-orig-id="u170342popup">
+                                            <div class="Thumb popup_element temp_no_id" data-col-pos="0" data-sizePolicy="fixed" data-pintopage="page_fixedRight" data-leftAdjustmentDoneBy="u170342popup" data-orig-id="u170342"><!-- simple frame --></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <span class="clearfix colelem placeholder" data-placeholder-for="u215904-4_content"><!-- placeholder node --></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- m_editable region-id="editable-static-tag-U6034-BP_505" template="contact-us.html" data-type="html" data-ice-options="disableImageResize,link,txtStyleTarget" -->
+                <div class="clearfix colelem temp_no_id" data-muse-uid="U6034" data-muse-type="txt_frame" data-IBE-flags="txtStyleSrc" data-sizePolicy="fixed" data-pintopage="page_fixedCenter" data-orig-id="u6034-4">
+                    <!-- content -->
+                    <span class="placeholder" data-placeholder-for="u6034-4_0_content"><!-- placeholder node --></span>
+                </div>
+                <!-- /m_editable -->
+                <div class="browser_width colelem temp_no_id" data-orig-id="u234294-bw">
+                    <span class="placeholder" data-placeholder-for="u234294_content"><!-- placeholder node --></span>
+                </div>
+                <!-- m_editable region-id="editable-static-tag-U807-BP_505" template="contact-us.html" data-type="html" data-ice-options="disableImageResize,link,txtStyleTarget" -->
+                <div class="clearfix colelem temp_no_id" data-muse-uid="U807" data-muse-type="txt_frame" data-IBE-flags="txtStyleSrc" data-sizePolicy="fixed" data-pintopage="page_fixedCenter" data-orig-id="u807-4">
+                    <!-- content -->
+                    <span class="placeholder" data-placeholder-for="u807-2_content"><!-- placeholder node --></span>
+                </div>
+                <!-- /m_editable -->
+                <!-- m_editable region-id="editable-static-tag-U144506-BP_505" template="contact-us.html" data-type="html" data-ice-options="disableImageResize,link,txtStyleTarget" -->
+                <div class="clearfix colelem temp_no_id" data-muse-uid="U144506" data-muse-type="txt_frame" data-IBE-flags="txtStyleSrc" data-sizePolicy="fixed" data-pintopage="page_fixedCenter" data-orig-id="u144506-6">
+                    <!-- content -->
+                    <span class="placeholder" data-placeholder-for="u144506-6_0_content"><!-- placeholder node --></span>
+                    <span class="placeholder" data-placeholder-for="u144506-6_1_content"><!-- placeholder node --></span>
+                </div>
+                <!-- /m_editable -->
+                <!-- m_editable region-id="editable-static-tag-U144503-BP_505" template="contact-us.html" data-type="html" data-ice-options="disableImageResize,link,txtStyleTarget" -->
+                <div class="clearfix colelem temp_no_id" data-muse-uid="U144503" data-muse-type="txt_frame" data-IBE-flags="txtStyleSrc" data-sizePolicy="fixed" data-pintopage="page_fixedCenter" data-orig-id="u144503-4">
+                    <!-- content -->
+                    <span class="placeholder" data-placeholder-for="u144503-4_0_content"><!-- placeholder node --></span>
+                </div>
+                <!-- /m_editable -->
+                <span class="clearfix colelem placeholder" data-placeholder-for="u144513_content"><!-- placeholder node --></span>
+                <!-- m_editable region-id="editable-static-tag-U144507-BP_505" template="contact-us.html" data-type="html" data-ice-options="disableImageResize,link,txtStyleTarget" -->
+                <div class="clearfix colelem temp_no_id" data-muse-uid="U144507" data-muse-type="txt_frame" data-IBE-flags="txtStyleSrc" data-sizePolicy="fixed" data-pintopage="page_fixedCenter" data-orig-id="u144507-4">
+                    <!-- content -->
+                    <span class="placeholder" data-placeholder-for="u144507-4_0_content"><!-- placeholder node --></span>
+                </div>
+                <!-- /m_editable -->
+                <!-- m_editable region-id="editable-static-tag-U144504-BP_505" template="contact-us.html" data-type="html" data-ice-options="disableImageResize,link,txtStyleTarget" -->
+                <div class="clearfix colelem temp_no_id" data-muse-uid="U144504" data-muse-type="txt_frame" data-IBE-flags="txtStyleSrc" data-sizePolicy="fixed" data-pintopage="page_fixedCenter" data-orig-id="u144504-4">
+                    <!-- content -->
+                    <span class="placeholder" data-placeholder-for="u144504-4_0_content"><!-- placeholder node --></span>
+                </div>
+                <!-- /m_editable -->
+                <span class="clearfix colelem placeholder" data-placeholder-for="u144516_content"><!-- placeholder node --></span>
+                <!-- m_editable region-id="editable-static-tag-U144508-BP_505" template="contact-us.html" data-type="html" data-ice-options="disableImageResize,link,txtStyleTarget" -->
+                <div class="clearfix colelem temp_no_id" data-muse-uid="U144508" data-muse-type="txt_frame" data-IBE-flags="txtStyleSrc" data-sizePolicy="fixed" data-pintopage="page_fixedCenter" data-orig-id="u144508-4">
+                    <!-- content -->
+                    <span class="placeholder" data-placeholder-for="u144508-4_0_content"><!-- placeholder node --></span>
+                </div>
+                <!-- /m_editable -->
+                <!-- m_editable region-id="editable-static-tag-U144505-BP_505" template="contact-us.html" data-type="html" data-ice-options="disableImageResize,link,txtStyleTarget" -->
+                <div class="clearfix colelem temp_no_id" data-muse-uid="U144505" data-muse-type="txt_frame" data-IBE-flags="txtStyleSrc" data-sizePolicy="fixed" data-pintopage="page_fixedCenter" data-orig-id="u144505-4">
+                    <!-- content -->
+                    <span class="placeholder" data-placeholder-for="u144505-4_0_content"><!-- placeholder node --></span>
+                </div>
+                <!-- /m_editable -->
+                <div class="clearfix colelem temp_no_id" data-orig-id="pu144509-8">
+                    <!-- group -->
+                    <!-- m_editable region-id="editable-static-tag-U144509-BP_505" template="contact-us.html" data-type="html" data-ice-options="disableImageResize,link,txtStyleTarget" -->
+                    <div class="clearfix grpelem temp_no_id" data-muse-uid="U144509" data-muse-type="txt_frame" data-IBE-flags="txtStyleSrc" data-sizePolicy="fixed" data-pintopage="page_fixedCenter" data-leftAdjustmentDoneBy="pu144509-8" data-orig-id="u144509-8">
+                        <!-- content -->
+                        <span class="placeholder" data-placeholder-for="u144509-8_0_content"><!-- placeholder node --></span>
+                        <span class="placeholder" data-placeholder-for="u144509-8_1_content"><!-- placeholder node --></span>
+                        <span class="placeholder" data-placeholder-for="u144509-8_2_content"><!-- placeholder node --></span>
+                    </div>
+                    <!-- /m_editable -->
+                    <span class="clearfix grpelem placeholder" data-placeholder-for="u144510_content"><!-- placeholder node --></span>
+                </div>
+                <form class="form-grp clearfix colelem temp_no_id" method="post" enctype="multipart/form-data" action="scripts/form-u809.php" data-sizePolicy="fluidWidth" data-pintopage="page_fixedCenter" data-orig-id="widgetu809">
+                    <!-- none box -->
+                    <div class="clearfix grpelem temp_no_id" data-orig-id="pwidgetu818">
+                        <!-- column -->
+                        <div class="fld-grp clearfix colelem temp_no_id" data-required="true" data-sizePolicy="fixed" data-pintopage="page_fixedCenter" data-orig-id="widgetu818">
+                            <!-- none box -->
+                            <!-- m_editable region-id="editable-static-tag-U819-BP_505" template="contact-us.html" data-type="html" data-ice-options="disableImageResize,link" -->
+                            <label class="fld-label actAsDiv clearfix grpelem temp_no_id" data-muse-uid="U819" data-muse-type="txt_frame" for="widgetu818_input" data-sizePolicy="fixed" data-pintopage="page_fixedLeft" data-orig-id="u819-4"><!-- content --><span class="actAsPara placeholder" data-placeholder-for="u819-2_content"><!-- placeholder node --></span></label>
+                            <!-- /m_editable -->
+                            <span class="fld-input NoWrap actAsDiv rgba-background clearfix grpelem temp_no_id" data-sizePolicy="fixed" data-pintopage="page_fixedLeft" data-orig-id="u821-4"><!-- content --><span class="wrapped-input placeholder" data-placeholder-for="widgetu818_input_content"><!-- placeholder node --></span><label class="wrapped-input fld-prompt temp_no_id" for="widgetu818_input" data-orig-id="widgetu818_prompt"><span class="actAsPara placeholder" data-placeholder-for="widgetu818_prompt_0_content"><!-- placeholder node --></span></label></span>
+                        </div>
+                        <div class="fld-grp clearfix colelem temp_no_id" data-required="true" data-sizePolicy="fixed" data-pintopage="page_fixedCenter" data-orig-id="widgetu10718">
+                            <!-- none box -->
+                            <!-- m_editable region-id="editable-static-tag-U10719-BP_505" template="contact-us.html" data-type="html" data-ice-options="disableImageResize,link" -->
+                            <label class="fld-label actAsDiv clearfix grpelem temp_no_id" data-muse-uid="U10719" data-muse-type="txt_frame" for="widgetu10718_input" data-sizePolicy="fixed" data-pintopage="page_fixedLeft" data-orig-id="u10719-4"><!-- content --><span class="actAsPara placeholder" data-placeholder-for="u10719-2_content"><!-- placeholder node --></span></label>
+                            <!-- /m_editable -->
+                            <span class="fld-input NoWrap actAsDiv rgba-background clearfix grpelem temp_no_id" data-sizePolicy="fixed" data-pintopage="page_fixedLeft" data-orig-id="u10720-4"><!-- content --><span class="wrapped-input placeholder" data-placeholder-for="widgetu10718_input_content"><!-- placeholder node --></span><label class="wrapped-input fld-prompt temp_no_id" for="widgetu10718_input" data-orig-id="widgetu10718_prompt"><span class="actAsPara placeholder" data-placeholder-for="widgetu10718_prompt_0_content"><!-- placeholder node --></span></label></span>
+                        </div>
+                        <div class="fld-grp clearfix colelem temp_no_id" data-required="true" data-type="email" data-sizePolicy="fixed" data-pintopage="page_fixedCenter" data-orig-id="widgetu822">
+                            <!-- none box -->
+                            <!-- m_editable region-id="editable-static-tag-U823-BP_505" template="contact-us.html" data-type="html" data-ice-options="disableImageResize,link" -->
+                            <label class="fld-label actAsDiv clearfix grpelem temp_no_id" data-muse-uid="U823" data-muse-type="txt_frame" for="widgetu822_input" data-sizePolicy="fixed" data-pintopage="page_fixedLeft" data-orig-id="u823-4"><!-- content --><span class="actAsPara placeholder" data-placeholder-for="u823-2_content"><!-- placeholder node --></span></label>
+                            <!-- /m_editable -->
+                            <span class="fld-input NoWrap actAsDiv rgba-background clearfix grpelem temp_no_id" data-sizePolicy="fixed" data-pintopage="page_fixedLeft" data-orig-id="u824-4"><!-- content --><span class="wrapped-input placeholder" data-placeholder-for="widgetu822_input_content"><!-- placeholder node --></span><label class="wrapped-input fld-prompt temp_no_id" for="widgetu822_input" data-orig-id="widgetu822_prompt"><span class="actAsPara placeholder" data-placeholder-for="widgetu822_prompt_0_content"><!-- placeholder node --></span></label></span>
+                        </div>
+                        <div class="fld-grp clearfix colelem temp_no_id" data-required="false" data-sizePolicy="fixed" data-pintopage="page_fixedCenter" data-orig-id="widgetu812">
+                            <!-- none box -->
+                            <!-- m_editable region-id="editable-static-tag-U814-BP_505" template="contact-us.html" data-type="html" data-ice-options="disableImageResize,link" -->
+                            <label class="fld-label actAsDiv clearfix grpelem temp_no_id" data-muse-uid="U814" data-muse-type="txt_frame" for="widgetu812_input" data-sizePolicy="fixed" data-pintopage="page_fixedLeft" data-orig-id="u814-4"><!-- content --><span class="actAsPara placeholder" data-placeholder-for="u814-2_content"><!-- placeholder node --></span></label>
+                            <!-- /m_editable -->
+                            <span class="fld-textarea actAsDiv rgba-background clearfix grpelem temp_no_id" data-sizePolicy="fixed" data-pintopage="page_fixedLeft" data-orig-id="u815-4"><!-- content --><span class="wrapped-input placeholder" data-placeholder-for="widgetu812_input_content"><!-- placeholder node --></span><label class="wrapped-input fld-prompt temp_no_id" for="widgetu812_input" data-orig-id="widgetu812_prompt"><span class="actAsPara placeholder" data-placeholder-for="widgetu812_prompt_0_content"><!-- placeholder node --></span></label></span>
+                        </div>
+                        <!-- m_editable region-id="editable-static-tag-U816-BP_505" template="contact-us.html" data-type="html" data-ice-options="disableImageResize,link" -->
+                        <button class="submit-btn NoWrap rounded-corners clearfix colelem temp_no_id" data-muse-uid="U816" data-muse-type="txt_frame" type="submit" value="Submit" tabindex="15" data-sizePolicy="fixed" data-pintopage="page_fixedCenter" data-orig-id="u816-4">
+                            <!-- content -->
+                            <span class="placeholder" data-placeholder-for="u816-4_0_content"><!-- placeholder node --></span>
+                        </button>
+                        <!-- /m_editable -->
+                        <div class="clearfix colelem temp_no_id" data-orig-id="pu810-4">
+                            <!-- group -->
+                            <!-- m_editable region-id="editable-static-tag-U810-BP_505" template="contact-us.html" data-type="html" data-ice-options="disableImageResize,link" -->
+                            <div class="clearfix grpelem temp_no_id" data-muse-uid="U810" data-muse-type="txt_frame" data-sizePolicy="fixed" data-pintopage="page_fixedCenter" data-orig-id="u810-4">
+                                <!-- content -->
+                                <span class="placeholder" data-placeholder-for="u810-4_0_content"><!-- placeholder node --></span>
+                            </div>
+                            <!-- /m_editable -->
+                            <!-- m_editable region-id="editable-static-tag-U817-BP_505" template="contact-us.html" data-type="html" data-ice-options="disableImageResize,link" -->
+                            <div class="clearfix grpelem temp_no_id" data-muse-uid="U817" data-muse-type="txt_frame" data-sizePolicy="fixed" data-pintopage="page_fixedLeft" data-orig-id="u817-4">
+                                <!-- content -->
+                                <span class="placeholder" data-placeholder-for="u817-4_0_content"><!-- placeholder node --></span>
+                            </div>
+                            <!-- /m_editable -->
+                            <!-- m_editable region-id="editable-static-tag-U811-BP_505" template="contact-us.html" data-type="html" data-ice-options="disableImageResize,link" -->
+                            <div class="clearfix grpelem temp_no_id" data-muse-uid="U811" data-muse-type="txt_frame" data-sizePolicy="fixed" data-pintopage="page_fixedCenter" data-orig-id="u811-4">
+                                <!-- content -->
+                                <span class="placeholder" data-placeholder-for="u811-4_0_content"><!-- placeholder node --></span>
+                            </div>
+                            <!-- /m_editable -->
+                        </div>
+                    </div>
+                </form>
+                <span class="browser_width colelem placeholder" data-placeholder-for="u29206-bw_content"><!-- placeholder node --></span>
+                <!-- m_editable region-id="editable-static-tag-U803-BP_505" template="contact-us.html" data-type="image" -->
+                <div class="clip_frame colelem temp_no_id" data-muse-uid="U803" data-muse-type="img_frame" data-sizePolicy="fixed" data-pintopage="page_fixedCenter" data-orig-id="u803">
+                    <!-- image -->
+                    <img class="block temp_no_id temp_no_img_src" data-orig-src="images/separator.png?crc=98446538" alt="" width="375" height="10" data-muse-src="images/separator.png?crc=98446538" data-orig-id="u803_img" src="images/blank.gif?crc=4208392903" />
+                </div>
+                <!-- /m_editable -->
+            </div>
+            <div class="verticalspacer" data-offset-top="1324" data-content-above-spacer="1323" data-content-below-spacer="144" data-sizePolicy="fixed" data-pintopage="page_fixedLeft"></div>
+            <div class="browser_width grpelem temp_no_id" data-orig-id="u144-bw">
+                <div class="temp_no_id" data-orig-id="u144">
+                    <!-- group -->
+                    <div class="clearfix temp_no_id" data-orig-id="u144_align_to_page">
+                        <div class="clearfix grpelem temp_no_id" data-orig-id="pu115801-4">
+                            <!-- column -->
+                            <a class="nonblock nontext clearfix colelem temp_no_id" href="index.html" data-href="page:U74" data-sizePolicy="fixed" data-pintopage="page_fixedLeft" data-orig-id="u115801-4"><!-- content --><span class="placeholder" data-placeholder-for="u115801-2_content"><!-- placeholder node --></span></a>
+                            <a class="nonblock nontext clearfix colelem temp_no_id" href="about-us.html" data-href="page:U26657" data-sizePolicy="fixed" data-pintopage="page_fixedLeft" data-orig-id="u115799-4"><!-- content --><span class="placeholder" data-placeholder-for="u115799-2_content"><!-- placeholder node --></span></a>
+                            <a class="nonblock nontext clearfix colelem temp_no_id" href="our-properties.html" data-href="page:U25589" data-sizePolicy="fixed" data-pintopage="page_fixedLeft" data-orig-id="u115800-4"><!-- content --><span class="placeholder" data-placeholder-for="u115800-2_content"><!-- placeholder node --></span></a>
+                            <a class="nonblock nontext clearfix colelem temp_no_id" href="media.html" data-href="page:U2912" data-sizePolicy="fixed" data-pintopage="page_fixedLeft" data-orig-id="u115797-4"><!-- content --><span class="placeholder" data-placeholder-for="u115797-2_content"><!-- placeholder node --></span></a>
+                            <a class="nonblock nontext MuseLinkActive clearfix colelem temp_no_id" href="contact-us.html" data-href="page:U93" data-sizePolicy="fixed" data-pintopage="page_fixedLeft" data-orig-id="u115798-4"><!-- content --><span class="placeholder" data-placeholder-for="u115798-2_content"><!-- placeholder node --></span></a>
+                        </div>
+                        <a class="nonblock nontext clearfix grpelem temp_no_id" href="http://binghatti.com" data-IBE-flags="txtStyleSrc" data-sizePolicy="fixed" data-pintopage="page_fixedRight" data-orig-id="u197-4"><!-- content --><span class="placeholder" data-placeholder-for="u197-4_0_content"><!-- placeholder node --></span></a>
+                        <a class="nonblock nontext clip_frame grpelem temp_no_id" href="http://binghatti.com" data-sizePolicy="fixed" data-pintopage="page_fixedRight" data-orig-id="u224799"><!-- svg --><span class="svg placeholder" data-placeholder-for="u224797_content"><!-- placeholder node --></span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Other scripts -->
+    <script type="text/javascript">
+        // Decide weather to suppress missing file error or not based on preference setting
+        var suppressMissingFileError = false
+    </script>
+    <script type="text/javascript">
+        window.Muse.assets.check = function (d) {
+            if (!window.Muse.assets.checked) {
+                window.Muse.assets.checked = !0; var b = {}, c = function (a, b) { if (window.getComputedStyle) { var c = window.getComputedStyle(a, null); return c && c.getPropertyValue(b) || c && c[b] || "" } if (document.documentElement.currentStyle) return (c = a.currentStyle) && c[b] || a.style && a.style[b] || ""; return "" }, a = function (a) {
+                    if (a.match(/^rgb/)) return a = a.replace(/\s+/g, "").match(/([\d\,]+)/gi)[0].split(","), (parseInt(a[0]) << 16) + (parseInt(a[1]) << 8) + parseInt(a[2]); if (a.match(/^\#/)) return parseInt(a.substr(1),
+                        16); return 0
+                }, g = function (g) {
+                    for (var f = document.getElementsByTagName("link"), h = 0; h < f.length; h++)if ("text/css" == f[h].type) { var i = (f[h].href || "").match(/\/?css\/([\w\-]+\.css)\?crc=(\d+)/); if (!i || !i[1] || !i[2]) break; b[i[1]] = i[2] } f = document.createElement("div"); f.className = "version"; f.style.cssText = "display:none; width:1px; height:1px;"; document.getElementsByTagName("body")[0].appendChild(f); for (h = 0; h < Muse.assets.required.length;) {
+                        var i = Muse.assets.required[h], l = i.match(/([\w\-\.]+)\.(\w+)$/), k = l && l[1] ?
+                            l[1] : null, l = l && l[2] ? l[2] : null; switch (l.toLowerCase()) { case "css": k = k.replace(/\W/gi, "_").replace(/^([^a-z])/gi, "_$1"); f.className += " " + k; k = a(c(f, "color")); l = a(c(f, "backgroundColor")); k != 0 || l != 0 ? (Muse.assets.required.splice(h, 1), "undefined" != typeof b[i] && (k != b[i] >>> 24 || l != (b[i] & 16777215)) && Muse.assets.outOfDate.push(i)) : h++; f.className = "version"; break; case "js": h++; break; default: throw Error("Unsupported file type: " + l); }
+                    } d ? d().jquery != "1.8.3" && Muse.assets.outOfDate.push("jquery-1.8.3.min.js") : Muse.assets.required.push("jquery-1.8.3.min.js");
+                    f.parentNode.removeChild(f); if (Muse.assets.outOfDate.length || Muse.assets.required.length) f = "Some files on the server may be missing or incorrect. Clear browser cache and try again. If the problem persists please contact website author.", g && Muse.assets.outOfDate.length && (f += "\nOut of date: " + Muse.assets.outOfDate.join(",")), g && Muse.assets.required.length && (f += "\nMissing: " + Muse.assets.required.join(",")), suppressMissingFileError ? (f += "\nUse SuppressMissingFileError key in AppPrefs.xml to show missing file error pop up.", console.log(f)) : alert(f)
+                }; location && location.search && location.search.match && location.search.match(/muse_debug/gi) ?
+                    setTimeout(function () { g(!0) }, 5E3) : g()
+            }
+        };
+        var muse_init = function () {
+            require.config({ baseUrl: "" }); require(["jquery", "museutils", "whatinput", "jquery.watch", "webpro", "musewpslideshow", "jquery.museoverlay", "touchswipe", "jquery.museresponsive"], function (d) {
+                var $ = d; $(document).ready(function () {
+                    try {
+                        window.Muse.assets.check($);/* body */
+                        Muse.Utils.transformMarkupToFixBrowserProblemsPreInit();/* body */
+                        Muse.Utils.prepHyperlinks(true);/* body */
+                        Muse.Utils.resizeHeight('.browser_width');/* resize height */
+                        Muse.Utils.requestAnimationFrame(function () { $('body').addClass('initialized'); });/* mark body as initialized */
+                        Muse.Utils.resizeHeight('.popup_anchor.allow_click_through');/* resize height */
+                        Muse.Utils.makeButtonsVisibleAfterSettingMinWidth();/* body */
+                        Muse.Utils.initWidget('#widgetu809', ['#bp_infinity', '#bp_768', '#bp_505'], function (elem) { return new WebPro.Widget.Form(elem, { validationEvent: 'submit', errorStateSensitivity: 'high', fieldWrapperClass: 'fld-grp', formSubmittedClass: 'frm-sub-st', formErrorClass: 'frm-subm-err-st', formDeliveredClass: 'frm-subm-ok-st', notEmptyClass: 'non-empty-st', focusClass: 'focus-st', invalidClass: 'fld-err-st', requiredClass: 'fld-err-st', ajaxSubmit: true }); });/* #widgetu809 */
+                        Muse.Utils.initWidget('#pamphletu170340', ['#bp_768', '#bp_505'], function (elem) { return new WebPro.Widget.ContentSlideShow(elem, { contentLayout_runtime: 'lightbox', event: 'click', deactivationEvent: 'none', autoPlay: false, displayInterval: 3000, transitionStyle: 'fading', transitionDuration: 500, hideAllContentsFirst: false, shuffle: false, enableSwipe: true, resumeAutoplay: true, resumeAutoplayInterval: 3000, playOnce: false, autoActivate_runtime: false, isResponsive: true }); });/* #pamphletu170340 */
+                        Muse.Utils.fullPage('#page');/* 100% height page */
+                        $('.breakpoint').registerBreakpoint();/* Register breakpoints */
+                        Muse.Utils.transformMarkupToFixBrowserProblems();/* body */
+                    } catch (b) { if (b && "function" == typeof b.notify ? b.notify() : Muse.Assert.fail("Error calling selector function: " + b), false) throw b; }
+                })
+            })
+        };
+
+    </script>
+    <!-- RequireJS script -->
+    <script src="scripts/require.js?crc=3861931657" type="text/javascript" async data-main="scripts/museconfig.js?crc=278381782" onload="if (requirejs) requirejs.onError = function(requireType, requireModule) { if (requireType && requireType.toString && requireType.toString().indexOf && 0 <= requireType.toString().indexOf('#scripterror')) window.Muse.assets.check(); }" onerror="window.Muse.assets.check();"></script>
+</body>
+</html>
+
+@*=================New Code===========================*@
+
+
+
+
+
+
+
+@*<div id="careersText">
+    <center>
+        <h1 style="font-family:Algerian; color:forestgreen"><u> Careers </u></h1><br />
+        <form id="careersForm" method="post" enctype="multipart/form-data" >
+            <div>
+                <p>
+                    @*<label>
+                        <strong style="color:forestgreen"><i>NAME:&nbsp;</i></strong>
+                        <input id="cName" type="text" style="width:1000px;" placeholder=" Give me your name" />
+                    </label><br /><br />*@
+
+                    @*<label>
+                        <strong style="color:forestgreen"><i>NAME:&nbsp;</i></strong>
+                        <input type="text" id="cName" style="width:1000px;" placeholder=" Enter your name" 
+                                onkeydown="return alphaOnly(event);" />
+                    </label><br /><br />*@
+
+
+                    @*<label>
+                        <strong style="color:forestgreen"><i>TEL NO:&nbsp;</i></strong>
+                        <input id="cPhoneNumber" type="number" placeholder=" Your phone number" style="width:1000px;"  />
+                    </label><br /><br />*@
+
+                    @*<label>
+                        <strong style="color:forestgreen"><i>TEL NO:&nbsp;</i></strong>
+                        <input id="cPhoneNumber" type="number" placeholder=" 05********" style="width:1000px;" 
+                               oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength="12"/>
+                    </label><br /><br />*@
+
+                    @*<label>
+                        <strong style="color:forestgreen"><i>EMAIL ID:&nbsp;</i></strong>
+                        <input id="cEmail" type="email" placeholder=" Email Address" style="width:1000px;" required/>
+                    </label><br /><br />*@
+
+                    @*<label>
+                        <strong style="color:forestgreen"><i>EMAIL ID:&nbsp;</i></strong>
+                        <input id="cEmail" type="email" placeholder=" email@company.com" style="width:1000px;" onchange="validate()" />
+                    </label><br /><br />*@
+                    
+                    
+
+                    @*<label for="cPosition"> <strong style="color:forestgreen"> <i> POSITION: &nbsp; </i> </strong> </label>
+                    <select style="width:1000px;" name="cPosition" id="cPosition" class="required">
+                        <option value="">Select your occupation</option>
+                        <option value="Software Engineer">Software Engineer</option>
+                        <option value="Graphic Designer">Graphic Designer</option>
+                        <option value="Marketing Manager">Marketing Manager</option>
+                        <option value="Others">Others</option>
+                    </select><br /><br />
+
+                    <label style="color:forestgreen">
+                        &nbsp;
+                        <input type="file" id="FileUpload1" name="file" accept="application/pdf" onchange="FileSelected(this)" style="width:1000px; font-family: Algerian; font-size:medium; " />
+                    </label>*@
+
+                    
+                    @*<label style="color:forestgreen"> &nbsp; <input type="file" id="FileUpload1" name="file" runat="server"/></label>*@
+
+                    @*<div id="fileuploaderror" style="color:red;display:none"></div>
+                </p>
+            </div><br /><br />*@
+            
+            
+                @*<input type="button" onclick="fileUpload()" value="Submit" style="width:1000px; font-family:'Adobe Arabic'; font-size:large;" />*@
+
+                @*<input id="cSubmit" type="submit" onclick="fileUpload()" value="Submit" style="width:1000px; font-family:'Adobe Arabic'; font-size:large;" />
+            
+        </form>
+    </center>
+</div>*@
+
+@*onsubmit="alert('Sucessfully Submitted');"*@
+
+
